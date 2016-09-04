@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Waseem's Bar</h1>
+    <p class="lead"> Welcome to Waseem's Bar, click on "Drink Menu" below to view our selection of drinks, or view your current orders in "Your Orders"</p>
+    <p><a  class="btn btn-primary btn-lg"@Html.ActionLink("Drink Menu","Index","Drinks")</a></p> 
+     <p><a class="btn btn-primary btn-lg" @Html.ActionLink("Your Orders", "Index", "Orders")</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>About my bar</h2>
+        <p>
+            Click on the button below to learn more
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>
+    
+</div>
