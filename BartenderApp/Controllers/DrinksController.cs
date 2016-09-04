@@ -12,30 +12,17 @@ namespace BartenderApp.Controllers
 {
     public class DrinksController : Controller
     {
-        private DrinkDbContext db = new DrinkDbContext();
+        private BartenderDbContext db = new BartenderDbContext();
+
 
         // GET: Drinks
         public ActionResult Index()
         {
             return View(db.Drinks.ToList());
         }
-
+        
         // GET: Drinks/Details/5
         public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Drink drink = db.Drinks.Find(id);
-            if (drink == null)
-            {
-                return HttpNotFound();
-            }
-            return View(drink);
-        }
-
-        public ActionResult Order(int? id)
         {
             if (id == null)
             {

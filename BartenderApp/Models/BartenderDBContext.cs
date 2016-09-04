@@ -4,12 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
+
 namespace BartenderApp.Models
 {
-    public class Order
+    public class BartenderDbContext : DbContext
     {
-        public int Id { get; set; }
-        public virtual Drink Drink { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Drink> Drinks { get; set; }
+
+
     }
-    
 }
