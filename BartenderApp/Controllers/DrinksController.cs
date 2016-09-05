@@ -26,13 +26,31 @@ namespace BartenderApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Order([Bind(Include = "Id,Name")] Drink drink)
         {
+            var dbDrink = db.Drinks.Find(drink.Id);
 
-            return View();
+            if (ModelState.IsValid)
+            {
+                var order = new Order();
+                order.Drink = dbDrink;
+                db.Orders.Add(order);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+                
+            }
+
+            return View(dbDrink);
+            
+
+
         }
 
-        public ActionResult Order()
+        public ActionResult Order(int id)
         {
-            return View();
+            var drink = db.Drinks.Find(id);
+
+            return View(drink);
+
+
         }
 
 
