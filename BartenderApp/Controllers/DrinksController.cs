@@ -20,7 +20,24 @@ namespace BartenderApp.Controllers
         {
             return View(db.Drinks.ToList());
         }
-        
+
+        // Navigate to Order View
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Order([Bind(Include = "Id,Name")] Drink drink)
+        {
+
+            return View();
+        }
+
+        public ActionResult Order()
+        {
+            return View();
+        }
+
+
+
+
         // GET: Drinks/Details/5
         public ActionResult Details(int? id)
         {
